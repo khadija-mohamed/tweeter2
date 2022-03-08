@@ -21,6 +21,54 @@ body {
   font-size: 24px;
 }
 
-/*
- * Additional CSS can be defined below or in other CSS files, as per instructions
- */
+.new-tweet {
+  padding: 5%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-left: 15px;
+  margin-top: 0px;
+  padding-top: 15px;
+}
+
+.new-tweet-left {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 6px solid #545149;
+  font-weight: bold;
+}
+
+.new-tweet-left > textarea {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  width: 100%;
+  display: inline-block
+}
+
+.submission {
+  font-family: "Bungee", sans-serif;
+  padding-top: 1em;
+}
+
+.submission > button {
+  color: white;
+  background-color: #4056A1;
+  font-size: 20px;
+  margin-bottom: 0rem;
+}
+
+.counter {
+  float: right;
+  margin-right: 1.5rem;
+}
+
+.red-text {
+  color: red;
+}
+section {
+  padding-left: 6%;
+  padding-right: 6%;
+  margin-top: 0rem;
+  justify-items: center;
+}
