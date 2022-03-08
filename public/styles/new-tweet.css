@@ -49,3 +49,12 @@ section {
   margin-top: 0rem;
   justify-items: center;
 }
+
+.tweets {
+  border: solid #545149 3px;
+  display: flex;
+  flex-direction: column;
+  height: 200px;
+  padding: 5%;
+  margin: 0px
+}
