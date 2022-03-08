@@ -1,5 +1,9 @@
 $(document).ready(function () {
 
+  $('.tweetsSent').on('submit', function(event){
+    event.preventDefault();
+  })
+
 const data = [
   {
     "user": {
@@ -26,9 +30,9 @@ const data = [
 ]
 
 const renderTweets = function(tweets) {
+
   for (let tweet of tweets) {
-    $('.tweets').prepend(createTweetElement(tweet))
-  }
+    $('.tweets').prepend(createTweetElement(tweet))}
 }
 
 const createTweetElement = function(tweet) {
