@@ -3,6 +3,7 @@ body > header {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   background-color: #eca011;
   background-image: url(http://www.transparenttextures.com/patterns/asfalt-light.png);
   }
