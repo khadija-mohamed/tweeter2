@@ -1,33 +1,29 @@
 $(document).ready(function () {
 
+  const loadTweets = function() {
+    $.ajax({ method: 'GET', url: '/tweets'
+    }).then((response) => {
+      renderTweets(response);
+      $('.tweet-text').val("");
+      $(".counter").text(140);
+    });
+  };
+  loadTweets();
+  
+
   $('.tweetsSent').on('submit', function(event){
     event.preventDefault();
   })
 
-const data = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png"
-      ,
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1461116232227
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd" },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1461113959088
-  }
-]
+  let submission = $('.tweetsSent').serialize();
+  $.ajax({ method: 'GET', url: '/tweets', data:submission
+})
+.then((response) => {
+  renderTweets(response);
+  $('.tweet-text').val("");
+  $(".counter").text(140);
+});
+loadTweets();
 
 const renderTweets = function(tweets) {
 
@@ -36,6 +32,7 @@ const renderTweets = function(tweets) {
 }
 
 const createTweetElement = function(tweet) {
+let time = timeago.format(tweet.created_at);
 let $tweet = $(`<section class="tweets">
 <article>
   <header>
@@ -47,7 +44,7 @@ let $tweet = $(`<section class="tweets">
     <span>I have seen further by standing on the shoulder of giants</span>
   </main>
   <footer>
-    <div class="time">10 days ago</div>
+    <div class="time">${time}</div>
     <div class="buttons">
       <span><i class="fa fa-flag" aria-hidden="true"></i></span>
       <span><i class="fa fa-retweet" aria-hidden="true"></i></span>
