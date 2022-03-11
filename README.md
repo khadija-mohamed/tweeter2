@@ -12,6 +12,11 @@ This repository is the starter code for the project: Students will fork and clon
 3. Start the web server using the `npm run local` command. The app will be served at <http://localhost:8080/>.
 4. Go to <http://localhost:8080/> in your browser.
 
+
+## Final Product
+!["Main Page"](https://github.com/khadija-mohamed/tweeter2/blob/master/docs/tweeter%20home%20pae.png)
+This is the main page!
+
 ## Dependencies
 
 - Express
