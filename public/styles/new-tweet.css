@@ -1,3 +1,4 @@
+/*styling for new-tweet container*/
 .new-tweet {
   padding: 5%;
   display: flex;
@@ -7,7 +8,7 @@
   margin-top: 0px;
   padding-top: 15px;
 }
-
+/*styling for left section of new-tweet container*/
 .new-tweet-left {
   display: flex;
   flex-direction: column;
@@ -23,26 +24,28 @@
   display: inline-block
 }
 
+/*css styling for submission*/
 .submission {
   font-family: "Bungee", sans-serif;
   padding-top: 1em;
 }
 
-.submission > button {
+/*styling for tweet button*/
+.button {
   color: white;
-  background-color: #4056A1;
+  background-color: #8981ff;
+  border-color: #8981ff;
   font-size: 20px;
   margin-bottom: 0rem;
 }
 
+/*placement of character counter*/
 .counter {
   float: right;
   margin-right: 1.5rem;
 }
 
-.red-text {
-  color: red;
-}
+/*styling for tweets section*/
 section {
   padding-left: 6%;
   padding-right: 6%;
