@@ -50,19 +50,18 @@
 
   <!--Main content goes here-->
     <main class="container">
-      <section class="new-tweet">
+
         <form class="tweetsSent" method="POST" action="/tweets">
           <div class="new-tweet-left">
             <label for="tweet-text">What are you humming about?</label>
             <textarea name="text" class="tweet-text"></textarea>
           </div>
-          
+
           <div class="submission">
-            <button type="submit">Tweet</button>
+            <button type="submit" class="button">Tweet</button>
             <output name="counter" class="counter" for="tweet-text">140</output>
           </div>
         </form>
-      </section>
           <section class="tweets"></section>
     </main>
   </body>
