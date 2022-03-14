@@ -1,38 +1,37 @@
-nav {
+/*styling for nav as a whole*/
+.nav {
   display: flex;
+  width: 100%;
   justify-content: space-between;
   align-items: center;
-  background-color: #4056A1;
+  background-color: #8981ff;
   color: #FFFFFF;
   height: 120px;
+  position: fixed;
   top: 0; 
-	width: 100%;
   margin-top: 0.2em;
   padding-left: 1.5em;
+  padding-right: 1.5em;
   padding-top: 0.7em ;
 }
 
-nav > span {
-  font-family: "Bungee", sans-serif;
-  font-size: 40pt;
-}
-
-nav > div {
-  float: right;
-}
-.write {
+/*css styling for right side of nav with text and arrow icon */
+.navright {
   display: flex;
   flex-direction: column;
-  align-items:center;
-  float: right;
-  margin-right: 1.5em;
-  padding-left: 100px;
-  margin-right: 1.5em;
-   align-items: center;
+  justify-content: center;
+  align-items: center;
+  margin: 1.5em;
 }
 
+/*styling for TWEETER text*/
+nav > span {
+  font-family: "Bungee", sans-serif;
+  font-size: 50pt;
+}
+
+/*styling for arrow*/
 .fa-angle-double-down {
   font-size: 30px;
-  font-size: 20px;
-  color: red;
+  color: rgb(255, 102, 204);
 }
