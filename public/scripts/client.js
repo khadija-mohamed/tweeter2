@@ -21,7 +21,7 @@ let $tweet = `
   <p>${tweet.content.text}</p>
   </section>
   <footer class="tweet-footer">
-  <p2>${tweet.content.created_at}</p2>
+  <p2>${timeago.format(tweet.content.created_at, 'pt_BR')}</p2>
 </footer>
 </article>
 `
@@ -52,6 +52,8 @@ const loadTweets = function() {
   })
   .catch(error => console.log(error));
 };
+
+
 
 $(document).ready(() => {
   postTweets()
