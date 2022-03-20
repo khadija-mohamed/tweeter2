@@ -1,21 +1,35 @@
-article {
-  width: 100%;
-  border: solid #545149 3px;
+#tweets {
   display: flex;
   flex-direction: column;
-  height: 250px;
-  padding: 1.5em;
+  align-items: center;
+}
+
+article {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border: solid #545149 3px;
+  margin-top: 20px;
+  padding: 1em;
 }
 
 article > header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
   width: 100%;
   height: 170px;
   padding: 0.5em
 }
 
 article > header > div > img {
-  height: 65px;
+  height: 50px;
   float: left;
+  display: flex;
+  align-items: center;
+  align-self: center;
 }
 
 article > header > div.name {
@@ -24,9 +38,11 @@ article > header > div.name {
 }
 
 article > header > div.username {
-float: right;
+display: flex;
+flex-direction: row;
 color: rgb(179, 176, 192);
 }
+
 
 article > footer {
   border-top: solid #545149 3px;
@@ -34,7 +50,7 @@ article > footer {
   justify-content: space-between;
   padding: 1%;
   font-size: medium
-}
+} 
 
 article > footer > div > span {
   float: right;
