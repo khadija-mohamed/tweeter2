@@ -54,4 +54,18 @@ let $tweet = `
 return $tweet;
 }
 
-renderTweets(data);
+const postTweets = function(event) {
+  $(".tweetsSent").submit(function(event) {
+  event.preventDefault();
+    $.ajax(`/tweets`,{
+      method: "POST",
+      data: $(this).serialize()
+    })
+    .catch(err => console.log(err));
+  });
+};
+
+$(document).ready(() => {
+  renderTweets(data);
+  postTweets()
+});
