@@ -2,6 +2,7 @@
 // calls createTweetElement for each tweet
 // takes return value and appends it to the tweets container
 const renderTweets = function(tweets) {
+  $('.tweets').empty();
   for (const tweet of tweets) {
     const value = createTweetElement(tweet);
     $('.tweets').prepend(value)
@@ -13,20 +14,25 @@ const createTweetElement = function(tweet) {
 let $tweet = `
 <article id="tweet">
 <header class="tweet-header">
-  <img src="${tweet.user.avatars}">
-    <h2 class="username">${tweet.user.name}</h2>
-    <span class="handle">${tweet.user.handle}</span>
+<img src="${tweet.user.avatars}">
+<h2 class="username">${tweet.user.name}</h2>
+<span class="handle">${tweet.user.handle}</span>
 </header>
 <section>
   <p>${tweet.content.text}</p>
   </section>
   <footer class="tweet-footer">
-  <p2>${timeago.format(tweet.content.created_at, 'pt_BR')}</p2>
+  <p2>${timeago.format(tweet.content.created_at)}</p2>
+  <div class="tweet-footer-icons">
+  <i class="fas fa-flag"></i>
+  <i class="fas fa-retweet"></i>
+  <i class="fas fa-heart"></i>
+  </div>
 </footer>
 </article>
 `
 return $tweet;
-}
+};
 
 //form submission with JQuery, serialize()function to send to server as query string
 //event listener added which prevents refresh of page upon clicking the button/submitting tweet
@@ -54,6 +60,12 @@ const loadTweets = function() {
 };
 
 
+//cross-site scripting, to prevent XSS attack
+const escape = function(string) {
+  let div = document.createElement('div');
+  div.appendChild(document.createTextNode(string));
+  return div.innerHTML;
+};
 
 $(document).ready(() => {
   postTweets()
