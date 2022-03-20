@@ -43,6 +43,11 @@ const postTweets = function(event) {
       method: "POST",
       data: $(this).serialize()
     })
+    .then(function () {
+      $(".error").hide();
+      $(".counter").text("140")
+      loadTweets()
+    })
     .catch(error => console.log(error));
   });
 };
@@ -59,6 +64,17 @@ const loadTweets = function() {
   .catch(error => console.log(error));
 };
 
+// tweet criteria is checked, validation check 
+const tweetValid = (tweet) => {
+  if ('tweet'.val().length > 140) {
+    $(".error").text("This tweet has too many characters.").show();
+    return false;
+  } else if ('tweet'.val().length === 0) {
+    $(".error").text("This tweet is empty, please add more characters.").show();
+    return false;
+  }
+  return true;
+}
 
 //cross-site scripting, to prevent XSS attack
 const escape = function(string) {
