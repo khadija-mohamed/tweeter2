@@ -23,7 +23,8 @@ body {
 .container {
   display: flex;
   width: 90%;
-  padding-top: 15px;
+  margin-top: 100px;
+  padding-top: 20px;
   flex-direction: column;
   justify-content: space-between;
  }
