@@ -54,6 +54,8 @@ let $tweet = `
 return $tweet;
 }
 
+//form submission with JQuery, serialize()function to send to server as query string
+//event listener added which prevents refresh of page upon clicking the button/submitting tweet
 const postTweets = function(event) {
   $(".tweetsSent").submit(function(event) {
   event.preventDefault();
@@ -61,11 +63,23 @@ const postTweets = function(event) {
       method: "POST",
       data: $(this).serialize()
     })
-    .catch(err => console.log(err));
+    .catch(error => console.log(error));
   });
 };
 
+//using jQuery will make request to retrive tweet array as JSON
+//introducing timeago 
+const loadTweets = function() {
+  $.ajax('/tweets', {
+    method: 'GET',
+  })
+  .then((tweets) => {
+    renderTweets(tweets)
+  })
+  .catch(error => console.log(error));
+};
+
 $(document).ready(() => {
-  renderTweets(data);
   postTweets()
+  loadTweets()
 });
