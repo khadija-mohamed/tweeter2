@@ -14,7 +14,7 @@ This repository is the starter code for the project: Students will fork and clon
 
 
 ## Final Product
-!["Main Page"](https://github.com/khadija-mohamed/tweeter2/blob/master/docs/tweeter%20home%20pae.png)
+![Alt Text](https://media.giphy.com/media/o1EdtEfhhMurp3tG7I/giphy.gif)
 This is the main page!
 
 ## Dependencies
