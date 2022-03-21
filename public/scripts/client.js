@@ -15,14 +15,14 @@ let $tweet = `
 <article id="tweet">
 <header class="tweet-header">
 <img src="${tweet.user.avatars}">
-<h2 class="username">${tweet.user.name}</h2>
-<span class="handle">${tweet.user.handle}</span>
+<h2 class="username">${escape(tweet.user.name)}</h2>
+<span class="handle">${escape(tweet.user.handle)}</span>
 </header>
 <section>
-  <p>${tweet.content.text}</p>
+  <p>${escape(tweet.content.text)}</p>
   </section>
   <footer class="tweet-footer">
-  <p2>${timeago.format(tweet.content.created_at)}</p2>
+  <span>${timeago.format(tweet.content.created_at)}</span>
   <div class="tweet-footer-icons">
   <i class="fas fa-flag"></i>
   <i class="fas fa-retweet"></i>
@@ -36,6 +36,7 @@ return $tweet;
 
 //form submission with JQuery, serialize()function to send to server as query string
 //event listener added which prevents refresh of page upon clicking the button/submitting tweet
+//.empty() function to clear tweets after submitted.
 const postTweets = function(event) {
   $(".tweetsSent").submit(function(event) {
   event.preventDefault();
@@ -45,6 +46,7 @@ const postTweets = function(event) {
     })
     .then(function () {
       $(".error").hide();
+      $(".tweet-text").val("").empty();
       $(".counter").text("140")
       loadTweets()
     })
@@ -64,7 +66,7 @@ const loadTweets = function() {
   .catch(error => console.log(error));
 };
 
-// tweet criteria is checked, validation check 
+// tweet criteria is checked -- validation for > 140 characters and 0 characters.
 const tweetValid = (tweet) => {
   if ('tweet'.val().length > 140) {
     $(".error").text("This tweet has too many characters.").show();
