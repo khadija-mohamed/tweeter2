@@ -2,6 +2,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow-wrap: break-word;
+}
+
+article:hover {
+  box-shadow: 8px 8px 3px 0px rgb(248, 229, 175);
 }
 
 article {
@@ -10,8 +15,8 @@ article {
   width: 100%;
   outline: solid #545149 3px;
   width: 90%;
-  margin-top: 15px;
-  padding: 1em;
+  margin-top: 20px;
+  padding: 1.5em;
 }
 
 .tweetsSent {
@@ -24,21 +29,22 @@ article {
   align-items: center;
   align-self: center;
   height: 50%;
-  width: 90%;
+  width: 100%;
 }
 
 .username {
-  float: left;
-  margin-top: 2%
+  font-size: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
 
 .handle {
-display: flex;
-flex-direction: row;
-color: rgb(179, 176, 192);
-justify-content: space-around;
+  color: rgb(179, 176, 192);
+  display: flex;
+  flex-direction: row-reverse;
+  flex-grow: 1;
 }
-
 
 article > footer {
   border-top: solid #545149 3px;
@@ -48,10 +54,20 @@ article > footer {
   font-size: medium
 } 
 
-article > footer > div > span {
-  float: right;
+section > p {
+  overflow-wrap: break-word;
+  margin-bottom: 3%;
 }
 
+footer > span {
+  float: left;
+  margin-top: 15px;
+}
+
+.tweet-footer-icons {
+  margin-top: 15px;
+  float: right;
+}
 .fa-flag:hover {
   color: rgb(248, 229, 175)
 }
@@ -61,3 +77,5 @@ article > footer > div > span {
 .fa-heart:hover {
   color: rgb(248, 229, 175)
 }
+
+
