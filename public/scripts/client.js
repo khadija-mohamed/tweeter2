@@ -37,9 +37,19 @@ return $tweet;
 //form submission with JQuery, serialize()function to send to server as query string
 //event listener added which prevents refresh of page upon clicking the button/submitting tweet
 //.empty() function to clear tweets after submitted.
+
 const postTweets = function(event) {
   $(".tweetsSent").submit(function(event) {
   event.preventDefault();
+  $('.errors').slideUp(400).text('');
+
+  if (!$(this).children().find('textarea').val()) {
+    return $('.errors').text("This tweet is empty, please add more characters.").slideDown();
+  }
+  if ($(this).children().find('textarea').val().length > 140) {
+    return $('.errors').text("This tweet has too many characters!").slideDown();
+  }
+
     $.ajax(`/tweets`,{
       method: "POST",
       data: $(this).serialize()
@@ -66,17 +76,18 @@ const loadTweets = function() {
   .catch(error => console.log(error));
 };
 
-//tweet criteria is checked -- validation for > 140 characters and 0 characters.
-const tweetValid = (tweet) => {
-  if (tweet.val().length > 140) {
-    $(".error").text("This tweet has too many characters.").show();
-    return false;
-  } else if (tweet.val().length === 0) {
-    $(".error").text("This tweet is empty, please add more characters.").show();
-    return false;
-  }
-  return true;
-}
+// //tweet criteria is checked -- validation for > 140 characters and 0 characters.
+// const tweetValid = (tweet) => {
+
+//   if (tweet.val().length > 140) {
+//     $(".errors").text("This tweet has too many characters.").show();
+//     return false;
+//   } else if (tweet.val().length === 0) {
+//     $(".errors").text("This tweet is empty, please add more characters.").show();
+//     return false;
+//   }
+//   return true;
+// }
 
 //cross-site scripting, to prevent XSS attack
 const escape = function(string) {
@@ -88,4 +99,5 @@ const escape = function(string) {
 $(document).ready(() => {
   postTweets()
   loadTweets()
+  tweetValid(tweet)
 });
