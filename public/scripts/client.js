@@ -22,7 +22,7 @@ let $tweet = `
   <p>${escape(tweet.content.text)}</p>
   </section>
   <footer class="tweet-footer">
-  <span>${timeago.format(tweet.content.created_at)}</span>
+  <span>${timeago.format(tweet.created_at)}</span>
   <div class="tweet-footer-icons">
   <i class="fas fa-flag"></i>
   <i class="fas fa-retweet"></i>
@@ -66,12 +66,12 @@ const loadTweets = function() {
   .catch(error => console.log(error));
 };
 
-// tweet criteria is checked -- validation for > 140 characters and 0 characters.
+//tweet criteria is checked -- validation for > 140 characters and 0 characters.
 const tweetValid = (tweet) => {
-  if ('tweet'.val().length > 140) {
+  if (tweet.val().length > 140) {
     $(".error").text("This tweet has too many characters.").show();
     return false;
-  } else if ('tweet'.val().length === 0) {
+  } else if (tweet.val().length === 0) {
     $(".error").text("This tweet is empty, please add more characters.").show();
     return false;
   }
