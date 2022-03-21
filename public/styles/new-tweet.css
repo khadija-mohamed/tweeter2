@@ -54,10 +54,3 @@ section {
   justify-items: center;
 }
 
-/*error for validation of characters */
-.error {
-  display: none;
-  padding: 1em;
-  color: rgb(230, 136, 136);
-  align-self: center;
-}
