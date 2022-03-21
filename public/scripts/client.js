@@ -44,10 +44,10 @@ const postTweets = function(event) {
   $('.errors').slideUp(400).text('');
 
   if (!$(this).children().find('textarea').val()) {
-    return $('.errors').text("This tweet is empty, please add more characters.").slideDown();
+    return $('.errors').text("⚠️⚠️⚠️This tweet is empty, please add more characters.⚠️⚠️⚠️").slideDown();
   }
   if ($(this).children().find('textarea').val().length > 140) {
-    return $('.errors').text("This tweet has too many characters!").slideDown();
+    return $('.errors').text("⚠️⚠️⚠️This tweet has too many characters!⚠️⚠️⚠️").slideDown();
   }
 
     $.ajax(`/tweets`,{
@@ -75,19 +75,6 @@ const loadTweets = function() {
   })
   .catch(error => console.log(error));
 };
-
-// //tweet criteria is checked -- validation for > 140 characters and 0 characters.
-// const tweetValid = (tweet) => {
-
-//   if (tweet.val().length > 140) {
-//     $(".errors").text("This tweet has too many characters.").show();
-//     return false;
-//   } else if (tweet.val().length === 0) {
-//     $(".errors").text("This tweet is empty, please add more characters.").show();
-//     return false;
-//   }
-//   return true;
-// }
 
 //cross-site scripting, to prevent XSS attack
 const escape = function(string) {
