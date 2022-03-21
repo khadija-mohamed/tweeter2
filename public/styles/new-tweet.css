@@ -16,6 +16,7 @@
   font-weight: bold;
 }
 
+/*styling for text area */
 .new-tweet-left > textarea {
   background-color: transparent;
   border: none;
@@ -51,4 +52,12 @@ section {
   padding-right: 6%;
   margin-top: 0rem;
   justify-items: center;
+}
+
+/*error for validation of characters */
+.error {
+  display: none;
+  padding: 1em;
+  color: rgb(230, 136, 136);
+  align-self: center;
 }
